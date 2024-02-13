@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+body {
+    margin-right: 5rem;
+    margin-left: 5rem;
+}
 .container {
     display: flex;
     border: solid 5px black;
@@ -28,7 +32,7 @@
 .box {
     flex: 1 0 calc(100% / 5);
     width: calc(100% / 5);
-    padding-bottom: calc(100% / 5); /*set width equal to height*/
-    position: relative; /*set width equal to height*/
+    /*padding-bottom: calc(100% / 5); /*set width equal to height*/
+    /*position: relative; /*set width equal to height*/
     border: solid 5px black;
 }
