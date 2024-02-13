@@ -8,13 +8,27 @@
     display: flex;
     border: solid 5px black;
     flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 .wrapper {
     display: flex;
     flex-wrap: wrap;
+    flex-grow: 2; /* 2:1 grow ratio with .equal*/
 }
 
 .calculator {
-    display: flex;
+    display: flex; 
+}
+
+.equal {
+    flex-grow: 1;
+}
+
+.box {
+    flex: 1 0 calc(100% / 5);
+    width: calc(100% / 5);
+    padding-bottom: calc(100% / 5); /*set width equal to height*/
+    position: relative; /*set width equal to height*/
+    border: solid 5px black;
 }
