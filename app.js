@@ -28,6 +28,18 @@ function operate(a, b, op){
 };
 
 
+let appendNum = "";
+const box = document.querySelectorAll(".box");
+
+for (let i = 0; i < 16; i++){
+    box[i].addEventListener("click", (e) => {
+        const value = e.target.textContent;
+        appendNum += value;
+        alert(appendNum);
+    });
+
+}
+
 console.log(add(5, 4));
 console.log(subtract(5, 4));
 console.log(multiply(5,4));
