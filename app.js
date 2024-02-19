@@ -52,12 +52,18 @@ for (let i = 0; i < 10; i++){
 for (let i = 0; i < 4; i++){
     op[i].addEventListener("click", (e) =>{
         const operator = e.target.textContent;
+        var num1 = appendStr;
+
+        appendStr = "";
+
         console.log(operator);
         displayCalcClear();
-        var appendNum = operate(parseFloat(appendStr), 3, operator);
+
+        var appendNum = operate(parseFloat(num1), 3, operator);
         appendStr = "";
         console.log(appendNum);
-    
-    } );
+        appendStr = appendNum;
+        }
+    );
 }
 
