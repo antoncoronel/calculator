@@ -27,20 +27,37 @@ function operate(a, b, op){
     }
 };
 
-
-let appendNum = "";
-const box = document.querySelectorAll(".box");
-
-for (let i = 0; i < 16; i++){
-    box[i].addEventListener("click", (e) => {
-        const value = e.target.textContent;
-        appendNum += value;
-        alert(appendNum);
-    });
-
+function displayCalcNum(){
+    const screen = document.querySelector(".screen");
+    screen.textContent = appendStr;
 }
 
-console.log(add(5, 4));
-console.log(subtract(5, 4));
-console.log(multiply(5,4));
-console.log(divide(5,4));
+function displayCalcClear(){
+    const screen = document.querySelector(".screen");
+    screen.textContent = "";
+}
+
+let appendStr = "";
+
+const num = document.querySelectorAll("#num");
+const op = document.querySelectorAll("#operate");
+
+for (let i = 0; i < 10; i++){
+    num[i].addEventListener("click", (e) => {
+        const value = e.target.textContent;
+        appendStr += value;
+        displayCalcNum();
+    });
+}
+for (let i = 0; i < 4; i++){
+    op[i].addEventListener("click", (e) =>{
+        const operator = e.target.textContent;
+        console.log(operator);
+        displayCalcClear();
+        var appendNum = operate(parseFloat(appendStr), 3, operator);
+        appendStr = "";
+        console.log(appendNum);
+    
+    } );
+}
+
