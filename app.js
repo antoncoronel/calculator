@@ -28,42 +28,45 @@ function operate(a, b, op){
 };
 
 function displayCalcNum(){
-    const screen = document.querySelector(".screen");
+    const screen = document.querySelector(".current");
     screen.textContent = appendStr;
 }
 
 function displayCalcClear(){
-    const screen = document.querySelector(".screen");
+    const screen = document.querySelector(".current");
     screen.textContent = "";
 }
 
 let appendStr = "";
 
-const num = document.querySelectorAll("#num");
-const op = document.querySelectorAll("#operate");
+const numButton = document.querySelectorAll("#num");
+const operatorButton = document.querySelectorAll("#operate");
+const previousDisplay = document.querySelector('.previous');
+const currentDisplay = document.querySelector('.current');
 
-for (let i = 0; i < 10; i++){
-    num[i].addEventListener("click", (e) => {
+
+numButton.forEach(button => {
+    button.addEventListener('click', (e) => {
         const value = e.target.textContent;
         appendStr += value;
         displayCalcNum();
-    });
-}
-for (let i = 0; i < 4; i++){
-    op[i].addEventListener("click", (e) =>{
+    })
+})
+
+operatorButton.forEach(button => {
+    button.addEventListener('click', (e) => {
         const operator = e.target.textContent;
-        var num1 = appendStr;
-
-        appendStr = "";
-
-        console.log(operator);
-        displayCalcClear();
-
-        var appendNum = operate(parseFloat(num1), 3, operator);
-        appendStr = "";
-        console.log(appendNum);
-        appendStr = appendNum;
+        console.log('operator clicked');
+        if(previousDisplay.innerHTML == ""){
+            previousDisplay.innerHTML = appendStr;
+            appendStr = "";
         }
-    );
-}
+        else if (previousDisplay.innerHTML != ""){
+            const ans = operate(previousDisplay.innerHTML, currentDisplay.innerHTML, operator);
+            previousDisplay.innerHTML = "";
+            currentDisplay.innerHTML = ans;
+        }
+    })
+})
+
 
