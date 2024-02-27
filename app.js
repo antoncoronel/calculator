@@ -37,35 +37,33 @@ function displayCalcClear(){
     screen.textContent = "";
 }
 
-class Calculator {
-    constructor(previousNum, currentNum){
-        this.previousNum = previousNum;
-        this.currentNum = currentNum;
-    }
-
-    appendNum(num){
-        this.currentNum = num;
-        console.log(this.currentNum);
-    }
-
-    updateDisplay(){
-        this.currentNumDisplay.innerText = this.currentNum;
-    }
-}
-
 let appendStr = "";
 
-const numButton = document.querySelectorAll("#num");
-const opButton = document.querySelectorAll("#operate");
-const previousNumDisplay = document.querySelectorAll('#previous');
-const currentNumDisplay = document.querySelectorAll('#currentNum');
+const num = document.querySelectorAll("#num");
+const op = document.querySelectorAll("#operate");
 
-const calc = new Calculator(previousNumDisplay.innerText, currentNumDisplay.innerText);
+for (let i = 0; i < 10; i++){
+    num[i].addEventListener("click", (e) => {
+        const value = e.target.textContent;
+        appendStr += value;
+        displayCalcNum();
+    });
+}
+for (let i = 0; i < 4; i++){
+    op[i].addEventListener("click", (e) =>{
+        const operator = e.target.textContent;
+        var num1 = appendStr;
 
-numButton.forEach(button => {
-    button.addEventListener('click', () => {
-        calc.appendNum(button.innerText);
-        calc.updateDisplay();
-    })
-})
+        appendStr = "";
+
+        console.log(operator);
+        displayCalcClear();
+
+        var appendNum = operate(parseFloat(num1), 3, operator);
+        appendStr = "";
+        console.log(appendNum);
+        appendStr = appendNum;
+        }
+    );
+}
 
