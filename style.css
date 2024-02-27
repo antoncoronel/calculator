@@ -47,7 +47,7 @@ body {
     align-items: center;   
 }
 
-.screen{
+.current{
     border: solid 5px black;
     margin-bottom: 0;
     min-height: 5rem;
