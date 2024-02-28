@@ -46,10 +46,11 @@ let appendStr = "";
 
 const numButton = document.querySelectorAll("#num");
 const operatorButton = document.querySelectorAll("#operate");
-const equalsButton = document.querySelector("#equals")
+const equalsButton = document.querySelector(".equals")
 const previousDisplay = document.querySelector('.previous');
 const currentDisplay = document.querySelector('.current');
 const operatorDisplay = document.querySelector(".op");
+const clearButton = document.querySelector("#clear");
 
 numButton.forEach(button => {
     button.addEventListener('click', (e) => {
@@ -70,8 +71,11 @@ operatorButton.forEach(button => {
             currentDisplay.innerHTML = "";
         }
         else if (previousDisplay.innerHTML != "" && currentDisplay.innerHTML != ""){ //operator has been pressed with a second number
-            const ans = operate(parseFloat(previousDisplay.innerHTML), parseFloat(currentDisplay.innerHTML), operator);
-            currentDisplay.innerHTML = ans;
+            const ans = operate(parseFloat(previousDisplay.innerHTML), parseFloat(currentDisplay.innerHTML), operatorDisplay.innerHTML);
+            displayCalcClear();
+            appendStr = "";
+            previousDisplay.innerHTML = ans;
+            operatorDisplay.innerHTML = operator;
         }
 
     })
@@ -79,9 +83,14 @@ operatorButton.forEach(button => {
 
 equalsButton.addEventListener('click', () => {
     console.log("equals");
-    if (previousDisplay.innerHTML != "" && currentDisplay.innerHTML != ""){
+    if (previousDisplay.innerHTML != "" && currentDisplay.innerHTML != "" && operatorDisplay != ""){
         const ans = operate(parseFloat(previousDisplay.innerHTML), parseFloat(currentDisplay.innerHTML), operatorDisplay.innerHTML);
         displayCalcClear();
         currentDisplay.innerHTML = ans;
+        appendStr = ans;
     }
+})
+
+clearButton.addEventListener('click', () => {
+    displayCalcClear();
 })
