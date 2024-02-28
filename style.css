@@ -31,7 +31,7 @@ body {
     
 }
 
-.equal {
+.equals {
     flex-grow: 1;
     border: solid 5px black;
     padding: 3rem;
