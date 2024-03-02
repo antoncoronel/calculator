@@ -116,7 +116,7 @@ clearButton.addEventListener('mouseover', () => {
 });
 
 clearButton.addEventListener('mouseout', () => {
-    clearButton.style.backgroundColor = '#';
+    clearButton.style.backgroundColor = '';
 });
 
 numButton.forEach(button =>{
