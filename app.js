@@ -39,6 +39,7 @@ function displayCalcClear(){
     current.innerHTML = "";
     previous.innerHTML = "";
     operator.innerHTML = "";
+    appendStr = "";
     console.log("run");
 }
 

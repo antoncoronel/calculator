@@ -5,13 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>CALCULATOR</h1>
     <div class = 'container'>
-        <div class = 'previous'></div>
-        <div class = "op"></div>
-        <div class = 'current'></div>
+        <div class = 'screen'>
+            <div class = 'top-display'>
+                <div class = 'previous'></div>
+                <div class = "op"></div>
+            </div>
+            <div class = 'current'></div>
+        </div>
         <div class = 'calculator'>
             <div class = 'wrapper'>
                 <button class = "box" id = "num">7</button>
@@ -28,7 +35,7 @@
                 <button class = "box" id = "operate">*</button>
                 <button class = "box" id = "clear">AC</button>
                 <button class = "box" id = "num">0</button>
-                <button class = "box">.</button>
+                <button class = "box" id = "num">.</button>
                 <button class = "box" id = "operate">/</button>
             </div>
             <button class = 'equals'>=</button>

@@ -1,7 +1,8 @@
 * {
     box-sizing: border-box;
-    margin: 1rem;
+    margin: 0.25rem;
     padding: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 body {
@@ -12,12 +13,15 @@ body {
     align-items: center;
     width: 70vw;
     height: 100vh;
+    background-color:bisque;
 }
 .container {
     display: flex;
     border: solid 5px black;
     flex-direction: column;
     flex-wrap: nowrap;
+    background-color: #757876;
+    border-radius: 10px;
 }
 
 .wrapper {
@@ -34,7 +38,10 @@ body {
 .equals {
     flex-grow: 1;
     border: solid 5px black;
+    border-radius: 10px;
     padding: 3rem;
+    font-size: medium; 
+    font-weight: bolder; 
 }
 
 .box {
@@ -42,13 +49,43 @@ body {
     flex: 1 0 calc(100% / 5);
     /*padding-bottom: calc(100% / 5); /*set width equal to height*/
     border: solid 5px black;
+    border-radius: 10px;
     aspect-ratio: 1/1;
     justify-content: center;
-    align-items: center;   
+    align-items: center;
+    font-size: medium; 
+    font-weight: bolder;  
+}
+
+.top-display{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.screen{
+    display: flex;
+    flex-direction: column;
+    background-color: #6fe88f;
+    border: solid 5px black;
+    border-radius: 10px;
+}
+
+.op{
+    min-height: 2rem;
+    font-family: "Kode Mono", monospace;
 }
 
 .current{
-    border: solid 5px black;
+    display: flex;
     margin-bottom: 0;
     min-height: 5rem;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: x-large;
+    font-family: "Kode Mono", monospace;  
+}
+
+.previous{
+    min-height: 2rem;
+    font-family: "Kode Mono", monospace;
 }
