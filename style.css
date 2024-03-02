@@ -102,7 +102,9 @@ footer {
     margin: 0;
 }
 
-p{
+a{
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: bolder;
+    text-decoration: none;
+    color: black;
 }

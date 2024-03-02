@@ -97,6 +97,11 @@ equalsButton.addEventListener('click', () => {
             currentDisplay.innerHTML = "THE UNIVERSE HAS BROKE";
             return;
         }
+        if(ans.toString().length > 36){
+            displayCalcClear();
+            currentDisplay.innerHTML = 'Too many digits';
+            return
+        }
         currentDisplay.innerHTML = ans;
         appendStr = ans;
     }
