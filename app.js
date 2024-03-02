@@ -109,4 +109,38 @@ equalsButton.addEventListener('click', () => {
 
 clearButton.addEventListener('click', () => {
     displayCalcClear();
+});
+
+clearButton.addEventListener('mouseover', () => {
+    clearButton.style.backgroundColor = '#c78ee8';
+});
+
+clearButton.addEventListener('mouseout', () => {
+    clearButton.style.backgroundColor = '#';
+});
+
+numButton.forEach(button =>{
+    button.addEventListener('mouseover', () =>{
+        button.style.backgroundColor = '#c78ee8';
+    });
+    button.addEventListener('mouseout', () =>{
+        button.style.backgroundColor = '';
+    })
+});
+
+operatorButton.forEach(button =>{
+    button.addEventListener('mouseover', () =>{
+        button.style.backgroundColor = '#ed944c';
+    });
+    button.addEventListener('mouseout', () =>{
+        button.style.backgroundColor = '';
+    })
+});
+
+equalsButton.addEventListener('mouseover', () =>{
+    equalsButton.style.backgroundColor = '#ed944c';
+});
+
+equalsButton.addEventListener('mouseout', () =>{
+    equalsButton.style.backgroundColor = '';
 })
