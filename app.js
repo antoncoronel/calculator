@@ -23,6 +23,9 @@ function operate(a, b, op){
         case '*':
             return multiply(a,b);
         case '/':
+            if(b === 0){
+                return 'error'
+            }
             return divide(a,b);
     }
 };
@@ -56,6 +59,9 @@ const clearButton = document.querySelector("#clear");
 numButton.forEach(button => {
     button.addEventListener('click', (e) => {
         const value = e.target.textContent;
+        if(appendStr.length > 36){
+            return;
+        }
         appendStr += value;
         displayCalcNum();
     })
@@ -65,7 +71,7 @@ operatorButton.forEach(button => {
     button.addEventListener('click', (e) => {
         const operator = e.target.textContent;
         console.log('operator clicked');
-        if(previousDisplay.innerHTML == ""){ //before operator has been pressed
+        if(previousDisplay.innerHTML === ""){ //before operator has been pressed
             previousDisplay.innerHTML = appendStr;
             operatorDisplay.innerHTML = operator;
             appendStr = "";
@@ -87,6 +93,10 @@ equalsButton.addEventListener('click', () => {
     if (previousDisplay.innerHTML != "" && currentDisplay.innerHTML != "" && operatorDisplay != ""){
         const ans = operate(parseFloat(previousDisplay.innerHTML), parseFloat(currentDisplay.innerHTML), operatorDisplay.innerHTML);
         displayCalcClear();
+        if(ans === 'error'){
+            currentDisplay.innerHTML = "THE UNIVERSE HAS BROKE";
+            return;
+        }
         currentDisplay.innerHTML = ans;
         appendStr = ans;
     }
